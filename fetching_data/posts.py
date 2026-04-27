@@ -22,7 +22,6 @@ def fetch_posts(bot) -> list[dict]:
         return _fetch_posts_from_edge(bot)
 
 
-# TODO needs work (exception handling)
 def _fetch_posts_from_edge(bot) -> list[dict]:
     log.info("Opening Edge to fetch posts...")
     bot.type_windows()

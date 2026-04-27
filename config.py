@@ -1,4 +1,3 @@
-# TODO do I need aspect ratio value here?
 from pathlib import Path
 
 # Paths
@@ -22,9 +21,6 @@ RETRY_DELAY    = 1
 
 # Mode 
 MODE = "GUI".upper() # "GUI"  or "CLI"
-
-# OCR 
-TESSERACT_CMD = r"C:\Program Files\Tesseract-OCR\tesseract.exe" # TODO
 
 # Image-matching
 TEMPLATE_SCALES    = [0.5, 0.75, 1.0, 1.25, 1.5]

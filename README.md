@@ -1,58 +1,40 @@
-# Vision-Based Desktop Automation with Dynamic Icon Grounding 
+# Vision-Based Desktop Automation
 
-A Python-based desktop automation system that detects application icons visually using computer vision + OCR, opens Notepad, fetches online data, and automatically generates structured text files.
+Automatically locates any desktop icon (using the best option in these: edge detection, template matching) and performs data entry from an API.
+I've used notepad here as an example .. but you can use you're own by changing the configurations mentioned below and having an [app]_ops.py like the one named [notepad_ops.py]
 
-This project demonstrates:
+## prerequisits
+1. windows 10
+2. uv
+3. python >= 3.10
 
-- Vision-based UI automation
-- Template matching with OpenCV
-- OCR-based label grounding (Tesseract)
-- OS-level window management
-- Fallback strategies
-- Retry mechanisms
-- Structured logging
-- Visible & Invisible execution modes
+## Setup
 
----
-
-## Features
-
-1. Vision-Based Icon Detection
-
- 2. Dynamic Data Fetching
-
-3. Automated Notepad Interaction
-
-4. Retry & Fallback Logic
-
-5. Window Management to handle unexpected popups
-
-6. Annotated Screenshot System
-
-7. Structured Logging
-
----
-
-##  How to Run
-
-Using uv:
-
+```bash
 uv sync
+```
 
-uv run python main.py
+Add template `grounding/input_templates/icon_image.png` (optional). If missing, falls back to Windows Search.
 
----
+## Run
 
-## Demonstrates
+```bash
+python main.py
+```
 
-Computer Vision in Automation
+## How it works
 
-OCR grounding
+1. **Grounding using the best option every execution** (Canny edge‑based, template matching) → finds the icon regardless of its position, the theme, the scale of windows...
+2. **Fallback** – launches Notepad via Windows Search if template fails.
+3. Types 10 fetched posts and saves them as `post_{id}.txt`.
 
-Multi-layer fallback design
+## Config (`config.py`)
 
-Robust error handling
+- `ICON_NAME` – e.g., `"Notepad"`
+- `ICON_PATH` – template image path (optional)
+- `TEMPLATE_SCALES` – `[0.5, 0.75, 1.0, 1.25, 1.5]`
+- `MODE` – `"GUI"` or `"CLI"`
 
-Clean modular architecture
+## Output
 
-Logging best practices
+Annotated screenshots saved in `grounding/output_annotated_screenshots/`.
