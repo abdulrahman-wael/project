@@ -20,7 +20,7 @@ RETRY_ATTEMPTS = 3
 RETRY_DELAY    = 1
 
 # Mode 
-MODE = "GUI".upper() # "GUI"  or "CLI"
+MODE = "GUI".upper() # "GUI"  or "PYTHON"
 
 # Image-matching
 TEMPLATE_SCALES    = [0.5, 0.75, 1.0, 1.25, 1.5]

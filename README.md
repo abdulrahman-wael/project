@@ -19,7 +19,7 @@ Add template `grounding/input_templates/icon_image.png` (optional). If missing, 
 ## Run
 
 ```bash
-python main.py
+uv run main.py
 ```
 
 ## How it works
@@ -33,7 +33,7 @@ python main.py
 - `ICON_NAME` – e.g., `"Notepad"`
 - `ICON_PATH` – template image path (optional)
 - `TEMPLATE_SCALES` – `[0.5, 0.75, 1.0, 1.25, 1.5]`
-- `MODE` – `"GUI"` or `"CLI"`
+- `MODE` – `"GUI"` or `"PYTHON"`
 
 ## Output
 
